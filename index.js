@@ -92,6 +92,10 @@ module.exports = function(configuration) {
       filePrefix += 'MPI_';
     }
 
+    const monerisResult = {};
+    const generatedXML = xmlBuilder.buildObject(data);
+    monerisResult.generatedXML = generatedXML;
+
     const options = {
       uri:
         globals.PROTOCOL +
@@ -101,7 +105,7 @@ module.exports = function(configuration) {
         globals.PORT +
         globals[filePrefix + 'FILE'],
       method: 'POST',
-      body: xmlBuilder.buildObject(data),
+      body: generatedXML,
       headers: {
         'User-Agent': globals.API_VERSION
       },
@@ -110,11 +114,13 @@ module.exports = function(configuration) {
 
     return request(options)
       .then(res => xml.parseStringAsync(res))
-      .then(res =>
-        Array.isArray(res.response.receipt)
+      .then(res => {
+        const response = Array.isArray(res.response.receipt)
           ? res.response.receipt[0]
-          : res.response.receipt
-      );
+          : res.response.receipt;
+        monerisResult.response = response;
+        return monerisResult;
+      });
   }
 
   //Check out -> https://developer.moneris.com/More/Testing/Penny%20Value%20Simulator , for more "magic" amounts to force different responses.
