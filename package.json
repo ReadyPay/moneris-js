@@ -14,5 +14,11 @@
     "request": "^2.79.0",
     "request-promise": "^4.1.1",
     "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "npm-audit-resolver": "^3.0.0-RC.0"
+  },
+  "scripts": {
+    "better-audit": "resolve-audit"
   }
 }
