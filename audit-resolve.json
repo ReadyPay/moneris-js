@@ -15,6 +15,10 @@
     "1095102|request-promise>request>tough-cookie": {
       "decision": "ignore",
       "madeAt": 1706135422688
+    },
+    "1092301|xml2js": {
+      "decision": "ignore",
+      "madeAt": 1706135481180
     }
   },
   "rules": {},
