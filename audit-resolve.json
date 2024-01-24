@@ -7,6 +7,14 @@
     "1092972|request-promise>request": {
       "decision": "ignore",
       "madeAt": 1706134869775
+    },
+    "1095102|request>tough-cookie": {
+      "decision": "ignore",
+      "madeAt": 1706135422688
+    },
+    "1095102|request-promise>request>tough-cookie": {
+      "decision": "ignore",
+      "madeAt": 1706135422688
     }
   },
   "rules": {},
