@@ -1,0 +1,14 @@
+{
+  "decisions": {
+    "1092972|request": {
+      "decision": "ignore",
+      "madeAt": 1706134869775
+    },
+    "1092972|request-promise>request": {
+      "decision": "ignore",
+      "madeAt": 1706134869775
+    }
+  },
+  "rules": {},
+  "version": 1
+}
