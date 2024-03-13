@@ -2,7 +2,7 @@
 
 // Imports
 const xml = require('xml2js');
-const request = require('request-promise');
+const axios = require('axios');
 const Promise = require('bluebird');
 var $q = require('q'); //yes using two promise libraries, but will replace bluebird with q soon.
 const numeral = require('numeral');
@@ -97,7 +97,7 @@ module.exports = function(configuration) {
     monerisResult.generatedXML = generatedXML;
 
     const options = {
-      uri:
+      url:
         globals.PROTOCOL +
         '://' +
         globals[hostPrefix + 'HOST'] +
@@ -105,15 +105,16 @@ module.exports = function(configuration) {
         globals.PORT +
         globals[filePrefix + 'FILE'],
       method: 'POST',
-      body: generatedXML,
+      data: generatedXML,
       headers: {
-        'User-Agent': globals.API_VERSION
+        'User-Agent': globals.API_VERSION,
+        'Content-Type': 'application/xml'
       },
       timeout: globals.CLIENT_TIMEOUT * 1000
     };
 
-    return request(options)
-      .then(res => xml.parseStringAsync(res))
+    return axios(options)
+      .then(res => xml.parseStringAsync(res.data))
       .then(res => {
         const response = Array.isArray(res.response.receipt)
           ? res.response.receipt[0]
