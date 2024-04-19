@@ -1,6 +1,6 @@
 {
   "name": "moneris-node",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "Node / promise wrapped API for Moneris' Transactions API",
   "main": "index.js",
   "repository": "https://github.com/AlejandroEsquivel/moneris-js",
