@@ -2,7 +2,7 @@
 
 > A wrapper to access the Moneris API, forked from shaynair's great work (shaynair/moneris-js)
 
-> The hope for this module is to create clean, robust, promise wrapped queries that extend just beyond payments, shaynair's work supports for generalized queries to Moneris however, the hope is to have more examples and handling of imperfect formatting. 
+> This was forked because the original is not maintained.
 
 [Installation](#installation) |
 [Usage](#usage) |
@@ -44,11 +44,11 @@ var moneris = require('moneris-node')({
   test: true
 })
 moneris.pay({
-    amount: (5.99*2), 
+    amount: (5.99*2),
     card: '4242424242424242',
     expiry: '20/11',
     description: 'Two drinks'
-}).then((result)=>{ 
+}).then((result)=>{
   console.log('--APROVED');
   console.log('Message: '+result.msg);
   console.log('Receipt: '+result.receipt);
